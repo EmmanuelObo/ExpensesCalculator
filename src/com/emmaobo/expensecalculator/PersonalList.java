@@ -1,9 +1,20 @@
 package com.emmaobo.expensecalculator;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 
 public class PersonalList extends ExpensesList {
+
+    private ListReader listReader;
+    private ListWriter listWriter;
+
+    public PersonalList(String filename) throws IOException
+    {
+        listReader = new ListReader(filename);
+        listWriter = new ListWriter(filename);
+    }
+
 
     @Override
     public void addItem(String item, double cost)
