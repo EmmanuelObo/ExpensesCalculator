@@ -1,10 +1,16 @@
 package com.emmaobo.expensecalculator;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller{
 
-    private final boolean INFINITE = true;
+    private boolean running = true;
+    private final String FIRST = "1";
+    private final String SECOND = "2";
+    private final String THIRD = "3";
+    private final String FOURTH = "4";
+    private final String FIFTH = "5";
     private PersonalList list;
     private Scanner input;
 
@@ -17,37 +23,38 @@ public class Controller{
     void control()
     {
         String prompt;
-        menu();
-        while(INFINITE)
-        {
-            prompt = input.next();
-            if(prompt.equals("1"))
-            {
-                System.out.println("Enter item: ");
-                String item = input.next();
-                System.out.println("Enter cost: ");
-                double cost = input.nextDouble();
-                list.addItem(item, cost);
+        while(running) {
+            menu();
+            try {
+                prompt = input.next();
+                if (prompt.equals(FIRST))
+                    {
+                    System.out.println("Enter item: ");
+                    String item = input.next();
+                    System.out.println("Enter cost: ");
+                    double cost = input.nextDouble();
+                    list.addItem(item, cost);
+                    }
+                else if (prompt.equals(SECOND))
+                    {
+                    System.out.println("Enter item to delete: ");
+                    String item = input.next();
+                    list.removeItem(item);
+                    }
+                else if (prompt.equals(THIRD))
+                    {
+                    list.showList();
+                    }
+                else if (prompt.equals(FOURTH))
+                  {
+                  }
+                else if (prompt.equals(FIFTH))
+                    running = false;
             }
-
-            else if (prompt.equals("2"))
+            catch(InputMismatchException e)
             {
-                System.out.println("Enter item to delete: ");
-                String item = input.next();
-                list.removeItem(item);
+                System.out.println("Invalid input.");
             }
-
-            else if (prompt.equals("3"))
-            {
-                list.showList();
-            }
-
-            else if(prompt.equals("4"))
-            {
-            }
-
-            else if(prompt.equals("5"))
-                break;
         }
     }
 

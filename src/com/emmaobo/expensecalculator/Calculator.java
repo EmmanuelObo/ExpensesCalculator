@@ -4,6 +4,7 @@ package com.emmaobo.expensecalculator;
 public class Calculator{
     private final double TITHE = .10;
     private double total = 0;
+    private String errorMsg;
 
     public Calculator()
     {
@@ -12,12 +13,26 @@ public class Calculator{
 
     void addExpense(double cost)
     {
-        total += cost;
+        if(cost < 0)
+        {
+            errorMsg = "Cannot have negative costs";
+            System.out.println(errorMsg);
+            //TODO: might want to use an exception
+        }
+        else
+            total += cost;
     }
 
     void subtractExpense(double cost)
     {
-        total -= cost;
+        if(cost < 0)
+        {
+            errorMsg = "Cannot have negative costs";
+            System.out.println(errorMsg);
+            //TODO: might want to use an exception
+        }
+        else
+            total -= cost;
     }
 
     double calcTithe(double cost)
