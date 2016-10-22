@@ -38,7 +38,7 @@ public class PersonalList extends ExpensesList {
         while(it.hasNext())
         {
             Map.Entry pair = (Map.Entry)it.next();
-            printedList += "Item: " + pair.getKey() + " | " +"Price: " + pair.getValue() +"\n";
+            printedList += "Item: " + pair.getKey() + " " +"Price: " + pair.getValue() +"\n";
         }
         System.out.println(printedList);
         getTotal();
