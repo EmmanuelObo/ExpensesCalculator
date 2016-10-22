@@ -1,5 +1,6 @@
 package com.emmaobo.expensecalculator;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
@@ -8,12 +9,6 @@ public class PersonalList extends ExpensesList {
 
     private ListReader listReader;
     private ListWriter listWriter;
-
-    public PersonalList(String filename) throws IOException
-    {
-        listReader = new ListReader(filename);
-        listWriter = new ListWriter(filename);
-    }
 
 
     @Override
@@ -46,6 +41,7 @@ public class PersonalList extends ExpensesList {
             printedList += "Item: " + pair.getKey() + " | " +"Price: " + pair.getValue() +"\n";
         }
         System.out.println(printedList);
+        getTotal();
     }
 
     @Override
@@ -57,12 +53,10 @@ public class PersonalList extends ExpensesList {
     @Override
     public void save()
     {
-        //TODO : save the current list (implement Serializable)
     }
 
     @Override
-    public void restore()
-    {
-        //TODO : restore the saved list (Deserialization)
+    public void restore() {
+
     }
 }

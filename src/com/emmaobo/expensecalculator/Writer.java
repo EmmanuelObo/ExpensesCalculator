@@ -5,5 +5,5 @@ package com.emmaobo.expensecalculator;
  */
 public interface Writer {
 
-    public void writeList();
+    public void writeList(String item);
 }

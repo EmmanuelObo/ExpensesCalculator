@@ -8,12 +8,14 @@ import static org.junit.Assert.assertNotNull;
 
 public class ControllerTest {
 
-    Controller mockController;
+    private PersonalList mockList;
+    private Controller mockController;
 
     @Before
     public void init()
     {
-        mockController = new Controller();
+        mockList = new PersonalList();
+        mockController = new Controller(mockList);
     }
 
     @Test

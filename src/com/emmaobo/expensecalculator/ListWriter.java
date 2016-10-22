@@ -22,7 +22,7 @@ public class ListWriter implements Writer
     }
 
     @Override
-    public void writeList()
+    public void writeList(String item)
     {
         //TODO : Write list info to a file
     }

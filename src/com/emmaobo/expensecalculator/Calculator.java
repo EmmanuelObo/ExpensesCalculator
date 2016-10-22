@@ -27,7 +27,8 @@ public class Calculator{
 
     double getTotal()
     {
-        return total;
+        return Math.round(total * 100.0) / 100.0;
+
     }
 
     void clear()
