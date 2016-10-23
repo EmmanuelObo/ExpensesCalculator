@@ -1,9 +1,8 @@
 package com.emmaobo.expensecalculator;
 
-/**
- * Created by emmao_000 on 10/20/2016.
- */
+import java.util.HashMap;
+
 public interface Writer {
 
-    public void writeList(String item);
+    void writeList(HashMap<String, Double> list);
 }

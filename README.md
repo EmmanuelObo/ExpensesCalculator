@@ -9,8 +9,8 @@ So I decided to create an app that would do just that.
 
 
 ##Features
-Create a new list
-Load an existing list
-Add items to list
-Add a priority to your expense (coming soon)
-Delete an item
+* Create new list
+* Load existing list
+* Add items to list
+* Add priority to your expense (coming soon)
+* Delete item(s)

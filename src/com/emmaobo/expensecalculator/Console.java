@@ -22,9 +22,10 @@ public class Console {
         Scanner in = new Scanner(System.in);
         Controller controller ;
         String option;
-        menu();
+
         while(INFINITE)
         {
+            menu();
             option = in.next();
             if(option.equals("1"))
             {
@@ -32,7 +33,6 @@ public class Console {
                 controller = new Controller(list);
                 controller.control();
             }
-
             else if(option.equals("2"))
             {
 
@@ -41,5 +41,6 @@ public class Console {
             else if(option.equals("3"))
                 break;
         }
+        in.close();
     }
 }

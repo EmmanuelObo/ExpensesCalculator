@@ -59,14 +59,28 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testCalcTithe()
+    public void testCalcTitheResult()
     {
         double resultant = 10.00;
         double amount = 100;
         String msg = "Incorrect calculations.";
-        assertEquals(msg, resultant, calc.calcTithe(amount));
+        assertEquals(resultant, calc.calcTithe(amount), 0);
     }
 
+    @Test
+    public void testCalcTithe()
+    {
+        double amount = 100.00;
+        double result = 10.00;
+        calc.calcTithe(amount);
+        when(spyCalc.calcTithe(amount)).thenReturn(result);
+    }
 
+    @Test
+    public void testClear()
+    {
+        spyCalc.clear();
+        verify(spyCalc).clear();
+    }
 
 }
