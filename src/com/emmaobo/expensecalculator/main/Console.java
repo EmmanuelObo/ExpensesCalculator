@@ -1,5 +1,9 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.main;
 
+import com.emmaobo.expensecalculator.factories.ListGenerator;
+import com.emmaobo.expensecalculator.pojo.Controller;
+import com.emmaobo.expensecalculator.pojo.Menu;
+import com.emmaobo.expensecalculator.pojo.PersonalList;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -8,16 +12,6 @@ public class Console {
 
     private static final boolean INFINITE = true;
 
-    public static void menu()
-    {
-        System.out.println("Welcome to The Expense Calculator.");
-        System.out.println();
-        System.out.println("Select one of the options from the list below");
-        System.out.println("(1) Create a new list");
-        System.out.println("(2) Load existing list");
-        System.out.println("(3) Exit" );
-        System.out.println();
-    }
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         Controller controller ;
@@ -25,7 +19,7 @@ public class Console {
 
         while(INFINITE)
         {
-            menu();
+            Menu.genMainMenu();
             option = in.next();
             if(option.equals("1"))
             {
@@ -35,7 +29,7 @@ public class Console {
             }
             else if(option.equals("2"))
             {
-
+                //Code
             }
 
             else if(option.equals("3"))

@@ -9,14 +9,14 @@ import static org.mockito.Mockito.*;
 
 public class ReaderTest {
     private String mockFilename = "filename";
-    private ListReader listReader;
-    private ListReader spyReader;
+    private com.emmaobo.expensecalculator.filereader.ListReader listReader;
+    private com.emmaobo.expensecalculator.filereader.ListReader spyReader;
 
 
     @Before
     public void init() throws FileNotFoundException
     {
-        listReader = new ListReader(mockFilename);
+        listReader = new com.emmaobo.expensecalculator.filereader.ListReader(mockFilename);
         spyReader = spy(listReader);
     }
 

@@ -1,6 +1,5 @@
 package com.emmaobo.expensecalculator;
 
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,14 +7,14 @@ import static org.junit.Assert.assertNotNull;
 
 public class ControllerTest {
 
-    private PersonalList mockList;
-    private Controller mockController;
+    private com.emmaobo.expensecalculator.pojo.PersonalList mockList;
+    private com.emmaobo.expensecalculator.pojo.Controller mockController;
 
     @Before
     public void init()
     {
-        mockList = new PersonalList();
-        mockController = new Controller(mockList);
+        mockList = new com.emmaobo.expensecalculator.pojo.PersonalList();
+        mockController = new com.emmaobo.expensecalculator.pojo.Controller(mockList);
     }
 
     @Test

@@ -1,5 +1,6 @@
 package com.emmaobo.expensecalculator;
 
+import com.emmaobo.expensecalculator.pojo.Calculator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,7 +9,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 
 public class CalculatorTest {
 

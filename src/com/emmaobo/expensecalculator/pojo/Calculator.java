@@ -1,4 +1,4 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.pojo;
 
 
 public class Calculator{
@@ -11,7 +11,7 @@ public class Calculator{
         //TODO : Add GUI (last step of project)
     }
 
-    void addExpense(double cost)
+    public void addExpense(double cost)
     {
         if(cost < 0)
         {
@@ -23,7 +23,7 @@ public class Calculator{
             total += cost;
     }
 
-    void subtractExpense(double cost)
+    public void subtractExpense(double cost)
     {
         if(cost < 0)
         {
@@ -35,18 +35,18 @@ public class Calculator{
             total -= cost;
     }
 
-    double calcTithe(double cost)
+    public double calcTithe(double cost)
     {
         return cost*TITHE;
     }
 
-    double getTotal()
+    public double getTotal()
     {
         return Math.round(total * 100.0) / 100.0;
 
     }
 
-    void clear()
+    public void clear()
     {
         total = 0;
     }

@@ -1,4 +1,8 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.pojo;
+
+import com.emmaobo.expensecalculator.interfaces.ExpensesList;
+import com.emmaobo.expensecalculator.filewriter.ListWriter;
+import com.emmaobo.expensecalculator.filereader.ListReader;
 
 
 import java.io.IOException;

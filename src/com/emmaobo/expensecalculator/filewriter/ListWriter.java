@@ -1,4 +1,4 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.filewriter;
 
 
 import java.io.BufferedWriter;
@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import com.emmaobo.expensecalculator.interfaces.Writer;
 
 public class ListWriter implements Writer
 {

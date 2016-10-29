@@ -1,6 +1,5 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.pojo;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller{
@@ -20,11 +19,11 @@ public class Controller{
         this.list = list;
     }
 
-    void control()
+    public void control()
     {
         String prompt;
         while(running) {
-            menu();
+            Menu.genListMenu();
             prompt = input.next();
             if (prompt.equals(FIRST))
                 {
@@ -54,16 +53,5 @@ public class Controller{
             else
                 System.out.println("Invalid input, please try again");
         }
-    }
-
-    void menu()
-    {
-        System.out.println("What would you like to do?");
-        System.out.println("(1) Add item");
-        System.out.println("(2) Delete item");
-        System.out.println("(3) Show List" );
-        System.out.println("(4) Save" );
-        System.out.println("(5) Exit" );
-        System.out.println();
     }
 }

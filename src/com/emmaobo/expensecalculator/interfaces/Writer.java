@@ -1,4 +1,4 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.interfaces;
 
 import java.util.HashMap;
 

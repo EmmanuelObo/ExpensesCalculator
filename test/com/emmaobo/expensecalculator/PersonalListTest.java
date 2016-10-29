@@ -11,13 +11,13 @@ public class PersonalListTest {
 
     private String mockItem = "item";
     private double mockValue = 1.00;
-    private PersonalList mockList;
-    private PersonalList spyList;
+    private com.emmaobo.expensecalculator.pojo.PersonalList mockList;
+    private com.emmaobo.expensecalculator.pojo.PersonalList spyList;
 
     @Before
     public void init()
     {
-        mockList = new PersonalList();
+        mockList = new com.emmaobo.expensecalculator.pojo.PersonalList();
         spyList = spy(mockList);
     }
 

@@ -1,5 +1,7 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.factories;
 
+
+import com.emmaobo.expensecalculator.pojo.PersonalList;
 
 public class ListGenerator {
 

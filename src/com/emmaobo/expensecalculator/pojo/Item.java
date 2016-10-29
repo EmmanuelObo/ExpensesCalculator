@@ -1,4 +1,4 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.pojo;
 
 
 public class Item {

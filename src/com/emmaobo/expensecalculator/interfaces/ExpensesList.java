@@ -1,13 +1,12 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.interfaces;
 
+import com.emmaobo.expensecalculator.pojo.Calculator;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.HashMap;
 
 public abstract class ExpensesList {
-    Calculator calc;
-    HashMap<String, Double> list;
+    protected Calculator calc;
+    protected HashMap<String, Double> list;
     public ExpensesList()
     {
         calc = new Calculator();
