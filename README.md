@@ -8,9 +8,17 @@ I needed something that can list all my expenses and help me manage my spending.
 So I decided to create an app that would do just that.
 
 
+##Uses
+* Budgeting tool
+* Grocery lists
+* Shopping lists
+* Track expenses
+* Limit spending
+
 ##Features
 * Create new list
 * Load existing list
 * Add items to list
 * Add priority to your expense (coming soon)
+* Find specific item
 * Delete item(s)

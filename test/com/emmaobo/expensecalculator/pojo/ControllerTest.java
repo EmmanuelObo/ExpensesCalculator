@@ -1,4 +1,4 @@
-package com.emmaobo.expensecalculator;
+package com.emmaobo.expensecalculator.pojo;
 
 import org.junit.Before;
 import org.junit.Test;

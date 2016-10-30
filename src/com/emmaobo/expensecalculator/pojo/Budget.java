@@ -4,6 +4,12 @@ import com.emmaobo.expensecalculator.interfaces.BudgetTracker;
 
 import java.math.BigDecimal;
 
+/**
+ * Budget
+ *
+ * @param: BigDecimal budget
+ *
+ */
 public class Budget implements BudgetTracker {
 
     private BigDecimal budget;
