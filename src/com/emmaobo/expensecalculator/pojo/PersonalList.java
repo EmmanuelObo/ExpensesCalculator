@@ -6,6 +6,7 @@ import com.emmaobo.expensecalculator.filereader.ListReader;
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class PersonalList extends ExpensesList {
 
 
     @Override
-    public void addItem(String item, double cost)
+    public void addItem(String item, BigDecimal cost)
     {
         list.put(item, cost);
         calc.addExpense(cost);

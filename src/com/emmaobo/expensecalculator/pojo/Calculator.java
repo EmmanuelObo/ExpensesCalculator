@@ -1,54 +1,55 @@
 package com.emmaobo.expensecalculator.pojo;
 
 
+import java.math.BigDecimal;
+
 public class Calculator{
-    private final double TITHE = .10;
-    private double total = 0;
+    private final BigDecimal TITHE = new BigDecimal(".10");
+    private BigDecimal total;
     private String errorMsg;
 
     public Calculator()
     {
-        //TODO : Add GUI (last step of project)
+        total = new BigDecimal("0");
     }
 
-    public void addExpense(double cost)
+    public void addExpense(BigDecimal cost)
     {
-        if(cost < 0)
+        if(cost.compareTo(new BigDecimal("0")) == -1)
         {
             errorMsg = "Cannot have negative costs";
             System.out.println(errorMsg);
             //TODO: might want to use an exception
         }
         else
-            total += cost;
+            total = total.add(cost);
     }
 
-    public void subtractExpense(double cost)
+    public void subtractExpense(BigDecimal cost)
     {
-        if(cost < 0)
+        if(cost.compareTo(new BigDecimal("0")) == -1)
         {
             errorMsg = "Cannot have negative costs";
             System.out.println(errorMsg);
             //TODO: might want to use an exception
         }
         else
-            total -= cost;
+            total = total.subtract(cost);
     }
 
-    public double calcTithe(double cost)
+    public BigDecimal calcTithe(BigDecimal cost)
     {
-        return cost*TITHE;
+        return cost.multiply(TITHE);
     }
 
-    public double getTotal()
+    public BigDecimal getTotal()
     {
-        return Math.round(total * 100.0) / 100.0;
-
+        return total;
     }
 
     public void clear()
     {
-        total = 0;
+        total = new BigDecimal("0");
     }
 
 

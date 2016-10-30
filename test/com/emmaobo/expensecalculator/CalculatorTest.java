@@ -4,6 +4,8 @@ import com.emmaobo.expensecalculator.pojo.Calculator;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.spy;
@@ -14,8 +16,8 @@ public class CalculatorTest {
 
     private Calculator calc;
     private Calculator spyCalc;
-    private double mockCost = 5.99;
-    private double negativeCost = -4.99;
+    private BigDecimal mockCost = new BigDecimal("5.99");
+    private BigDecimal negativeCost = new BigDecimal("-4.99");
 
     @Before
     public void init()
@@ -61,19 +63,19 @@ public class CalculatorTest {
     @Test
     public void testCalcTitheResult()
     {
-        double resultant = 10.00;
-        double amount = 100;
+        BigDecimal resultant = new BigDecimal("10.00");
+        BigDecimal amount = new BigDecimal("100");
         String msg = "Incorrect calculations.";
-        assertEquals(resultant, calc.calcTithe(amount), 0);
+        assertEquals(resultant, calc.calcTithe(amount));
     }
 
     @Test
     public void testCalcTithe()
     {
-        double amount = 100.00;
-        double result = 10.00;
+        BigDecimal resultant = new BigDecimal("10.00");
+        BigDecimal amount = new BigDecimal("100");
         calc.calcTithe(amount);
-        when(spyCalc.calcTithe(amount)).thenReturn(result);
+        when(spyCalc.calcTithe(amount)).thenReturn(resultant);
     }
 
     @Test

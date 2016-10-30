@@ -2,18 +2,19 @@ package com.emmaobo.expensecalculator.interfaces;
 
 import com.emmaobo.expensecalculator.pojo.Calculator;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 public abstract class ExpensesList {
     protected Calculator calc;
-    protected HashMap<String, Double> list;
+    protected HashMap<String, BigDecimal> list;
     public ExpensesList()
     {
         calc = new Calculator();
-        list = new HashMap<String, Double>();
+        list = new HashMap<String, BigDecimal>();
     }
 
-    public abstract void addItem(String item, double cost);
+    public abstract void addItem(String item, BigDecimal cost);
     public abstract void removeItem(String item);
     public abstract void showList();
     public abstract void getTotal();

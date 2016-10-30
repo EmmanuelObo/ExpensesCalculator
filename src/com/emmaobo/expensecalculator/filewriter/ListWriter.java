@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class ListWriter implements Writer
     }
 
     @Override
-    public void writeList(HashMap<String, Double> list)
+    public void writeList(HashMap<String, BigDecimal> list)
     {
         int lineCount = 1;
         double total = 0;
@@ -51,4 +52,5 @@ public class ListWriter implements Writer
         }
         System.out.println("List successfully created.");
     }
+
 }

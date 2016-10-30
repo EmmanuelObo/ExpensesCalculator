@@ -21,20 +21,15 @@ public class Console {
         {
             Menu.genMainMenu();
             option = in.next();
-            if(option.equals("1"))
-            {
+            if (option.equals("1")) {
                 PersonalList list = ListGenerator.generateList();
                 controller = new Controller(list);
                 controller.control();
-            }
-            else if(option.equals("2"))
-            {
+            } else if (option.equals("2")) {
                 //Code
-            }
-
-            else if(option.equals("3"))
+            } else if (option.equals("3"))
                 break;
         }
-        in.close();
+           in.close();
     }
 }

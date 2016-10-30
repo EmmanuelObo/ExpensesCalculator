@@ -1,5 +1,7 @@
 package com.emmaobo.expensecalculator.pojo;
 
+import java.math.BigDecimal;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Controller{
@@ -24,34 +26,33 @@ public class Controller{
         String prompt;
         while(running) {
             Menu.genListMenu();
-            prompt = input.next();
-            if (prompt.equals(FIRST))
-                {
-                System.out.println("Enter item: ");
-                String item = input.next();
-                System.out.println("Enter cost: ");
-                double cost = input.nextDouble();
-                list.addItem(item, cost);
-                }
-            else if (prompt.equals(SECOND))
-                {
-                System.out.println("Enter item to delete: ");
-                String item = input.nextLine();
-                list.removeItem(item);
-                }
-            else if (prompt.equals(THIRD))
-                {
-                list.showList();
-                }
-            else if (prompt.equals(FOURTH))
-              {
-                  list.save();
-              }
-            else if (prompt.equals(FIFTH))
-                running = false;
+            try {
+                prompt = input.next();
+                if (prompt.equals(FIRST)) {
+                    System.out.println("Enter item: ");
+                    input.nextLine();
+                    String item = input.nextLine();
+                    System.out.println("Enter cost: ");
+                    BigDecimal cost = input.nextBigDecimal();
+                    list.addItem(item, cost);
+                } else if (prompt.equals(SECOND)) {
+                    System.out.println("Enter item to delete: ");
+                    String item = input.nextLine();
+                    list.removeItem(item);
+                } else if (prompt.equals(THIRD)) {
+                    list.showList();
+                } else if (prompt.equals(FOURTH)) {
+                    list.save();
+                } else if (prompt.equals(FIFTH))
+                    running = false;
 
-            else
-                System.out.println("Invalid input, please try again");
+                else
+                    System.out.println("Invalid input, please try again");
+            }
+            catch(InputMismatchException e)
+            {
+                System.out.println("Incorrect input");
+            }
         }
     }
 }
