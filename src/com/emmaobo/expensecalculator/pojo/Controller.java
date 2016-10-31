@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class Controller{
 
     private boolean running = true;
-    private final String FIRST = "1";
-    private final String SECOND = "2";
-    private final String THIRD = "3";
-    private final String FOURTH = "4";
-    private final String FIFTH = "5";
+    private final String ADD_ITEM = "1";
+    private final String DELETE_ITEM = "2";
+    private final String SHOW_LIST = "3";
+    private final String SAVE = "4";
+    private final String EXIT = "5";
     private PersonalList list;
     private Scanner input;
 
@@ -28,22 +28,30 @@ public class Controller{
             Menu.genListMenu();
             try {
                 prompt = input.next();
-                if (prompt.equals(FIRST)) {
+                if (prompt.equals(ADD_ITEM))
+                {
                     System.out.println("Enter item: ");
                     input.nextLine();
                     String item = input.nextLine();
                     System.out.println("Enter cost: ");
                     BigDecimal cost = input.nextBigDecimal();
                     list.addItem(item, cost);
-                } else if (prompt.equals(SECOND)) {
+                }
+                else if (prompt.equals(DELETE_ITEM))
+                {
                     System.out.println("Enter item to delete: ");
                     String item = input.nextLine();
                     list.removeItem(item);
-                } else if (prompt.equals(THIRD)) {
+                }
+                else if (prompt.equals(SHOW_LIST))
+                {
                     list.showList();
-                } else if (prompt.equals(FOURTH)) {
+                }
+                else if (prompt.equals(SAVE))
+                {
                     list.save();
-                } else if (prompt.equals(FIFTH))
+                }
+                else if (prompt.equals(EXIT))
                     running = false;
 
                 else

@@ -12,6 +12,9 @@ import java.util.Scanner;
 public class Console {
 
     private static final boolean INFINITE = true;
+    private static final String CREATE_NEW_LIST = "1";
+    private static final String RESTORE_EXISTING_LIST = "2";
+    private static final String EXIT = "3";
 
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
@@ -23,10 +26,11 @@ public class Console {
         {
             Menu.genMainMenu();
             option = in.next();
-            if (option.equals("1")) {
+            if (option.equals(CREATE_NEW_LIST)) {
                 Menu.genBudgetPrompt();
                 option = in.next();
-                if(option.equalsIgnoreCase("Y")) {
+                if(option.equalsIgnoreCase("Y"))
+                {
                     Menu.genInitBudget();
                     BigDecimal newBudget = in.nextBigDecimal();
                     list = ListGenerator.generateList(true, newBudget);
@@ -39,10 +43,12 @@ public class Console {
                     controller = new Controller(list);
                     controller.control();
                 }
-
-            } else if (option.equals("2")) {
-                //Code
-            } else if (option.equals("3"))
+            }
+            else if (option.equals(RESTORE_EXISTING_LIST))
+            {
+                //TODO: Implement restore list functionality
+            }
+            else if (option.equals(EXIT))
                 break;
         }
            in.close();

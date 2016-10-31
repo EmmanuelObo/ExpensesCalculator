@@ -1,17 +1,27 @@
 package com.emmaobo.expensecalculator.pojo;
 
 
+import com.emmaobo.expensecalculator.enums.Priority;
+
 public class Item {
 
     private String name;
     private double value;
+    Priority priority;
 
-    //TODO : Add priority field
-
-    public Item(String name, double value)
+    public Item(String name, double value, String priority)
     {
         setName(name);
         setValue(value);
+
+        if(priority.equalsIgnoreCase("H"))
+            setPriority(Priority.HIGH);
+
+        if(priority.equalsIgnoreCase("M"))
+            setPriority(Priority.MEDIUM);
+
+        if(priority.equalsIgnoreCase("L"))
+            setPriority(Priority.LOW);
     }
 
     public double getValue() {
@@ -28,5 +38,13 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
     }
 }
