@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import com.emmaobo.expensecalculator.interfaces.Writer;
+import com.emmaobo.expensecalculator.pojo.Budget;
 
 public class ListWriter implements Writer
 {
@@ -30,7 +31,7 @@ public class ListWriter implements Writer
     public void writeList(HashMap<String, BigDecimal> list)
     {
         int lineCount = 1;
-        double total = 0;
+        BigDecimal total = new BigDecimal("0");
         Iterator iterator = list.entrySet().iterator();
         while(iterator.hasNext())
         {
@@ -38,7 +39,7 @@ public class ListWriter implements Writer
             try {
                 writer.append(lineCount + ". " + pair.getKey() + ", $" +pair.getValue());
                 writer.newLine();
-                total += (Double)pair.getValue();
+                total = total.add((BigDecimal)pair.getValue());
                 lineCount++;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -46,6 +47,36 @@ public class ListWriter implements Writer
         }
         try {
             writer.append("Total: $" + total);
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("List successfully created.");
+    }
+
+    public void writeList(HashMap<String, BigDecimal> list, Budget budget)
+    {
+        int lineCount = 1;
+        BigDecimal total = new BigDecimal("0");
+        Iterator iterator = list.entrySet().iterator();
+        while(iterator.hasNext())
+        {
+            Map.Entry pair = (Map.Entry)iterator.next();
+            try {
+                writer.append(lineCount + ". " + pair.getKey() + ", $" +pair.getValue());
+                writer.newLine();
+                total = total.add((BigDecimal)pair.getValue());
+                lineCount++;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            writer.append("Total: $" + total);
+            writer.newLine();
+            writer.append("Budget: $" + budget.checkBudget());
+            writer.newLine();
+            writer.append("Budget (after expenses): $" + budget.checkBudget().subtract(total));
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();

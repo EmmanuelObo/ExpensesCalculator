@@ -5,3 +5,8 @@ Meal.txt
 out/
 .idea/
 
+November-Expenses.txt
+Sample
+src/com/emmaobo/expensecalculator/commands/
+target/
+test/com/emmaobo/expensecalculator/pojo/BudgetTest.java

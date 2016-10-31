@@ -6,6 +6,7 @@ import com.emmaobo.expensecalculator.pojo.Menu;
 import com.emmaobo.expensecalculator.pojo.PersonalList;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Console {
@@ -16,15 +17,29 @@ public class Console {
         Scanner in = new Scanner(System.in);
         Controller controller ;
         String option;
+        PersonalList list;
 
         while(INFINITE)
         {
             Menu.genMainMenu();
             option = in.next();
             if (option.equals("1")) {
-                PersonalList list = ListGenerator.generateList();
-                controller = new Controller(list);
-                controller.control();
+                Menu.genBudgetPrompt();
+                option = in.next();
+                if(option.equalsIgnoreCase("Y")) {
+                    Menu.genInitBudget();
+                    BigDecimal newBudget = in.nextBigDecimal();
+                    list = ListGenerator.generateList(true, newBudget);
+                    controller = new Controller(list);
+                    controller.control();
+                }
+                if(option.equalsIgnoreCase("N"))
+                {
+                    list = ListGenerator.generateList(false);
+                    controller = new Controller(list);
+                    controller.control();
+                }
+
             } else if (option.equals("2")) {
                 //Code
             } else if (option.equals("3"))

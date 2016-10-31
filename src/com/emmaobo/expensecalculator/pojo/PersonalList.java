@@ -16,7 +16,22 @@ public class PersonalList extends ExpensesList {
     private Scanner userInput;
     private ListReader listReader;
     private ListWriter listWriter;
+    private Budget budget;
+    private boolean hasBudget;
 
+
+    public PersonalList(){}
+
+    public PersonalList(boolean hasBudget)
+    {
+        this.hasBudget = hasBudget;
+    }
+
+    public PersonalList(boolean hasBudget, BigDecimal budget)
+    {
+        this.hasBudget = hasBudget;
+        this.budget = new Budget(budget);
+    }
 
     @Override
     public void addItem(String item, BigDecimal cost)
@@ -49,6 +64,11 @@ public class PersonalList extends ExpensesList {
         }
         System.out.println(printedList);
         getTotal();
+        if(hasBudget)
+        {
+            System.out.println("Budget: $" + budget.checkBudget());
+            System.out.println("Budget (after expenses): $" + calc.calcDifference(calc.getTotal(),budget.checkBudget()));
+        }
     }
 
     @Override
@@ -64,8 +84,16 @@ public class PersonalList extends ExpensesList {
         System.out.println("Enter list name: ");
         String listname = userInput.nextLine();
         try {
-            listWriter = new ListWriter(listname);
-            listWriter.writeList(list);
+            if(hasBudget)
+            {
+                listWriter = new ListWriter(listname);
+                listWriter.writeList(list, budget);
+            }
+            else
+            {
+                listWriter = new ListWriter(listname);
+                listWriter.writeList(list);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

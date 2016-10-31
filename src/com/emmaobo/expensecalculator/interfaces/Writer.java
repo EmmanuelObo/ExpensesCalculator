@@ -1,5 +1,7 @@
 package com.emmaobo.expensecalculator.interfaces;
 
+import com.emmaobo.expensecalculator.pojo.Budget;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 

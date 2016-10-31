@@ -37,6 +37,11 @@ public class Calculator{
             total = total.subtract(cost);
     }
 
+    public BigDecimal calcDifference(BigDecimal expenses, BigDecimal budget)
+    {
+        return budget.subtract(expenses);
+    }
+
     public BigDecimal calcTithe(BigDecimal cost)
     {
         return cost.multiply(TITHE);

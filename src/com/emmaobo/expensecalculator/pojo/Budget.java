@@ -4,23 +4,14 @@ import com.emmaobo.expensecalculator.interfaces.BudgetTracker;
 
 import java.math.BigDecimal;
 
-/**
- * Budget
- *
- * @param: BigDecimal budget
- *
- */
 public class Budget implements BudgetTracker {
 
     private BigDecimal budget;
-    private boolean hasBudget;
-
     public Budget(){
     }
 
     public Budget(BigDecimal budget){
         setBudget(budget);
-        hasBudget = true;
     }
 
     @Override
@@ -35,19 +26,9 @@ public class Budget implements BudgetTracker {
     }
 
     @Override
-    public boolean hasBudget() {
-        return this.hasBudget;
+    public void clear()
+    {
+        budget = new BigDecimal("0");
     }
 
-    @Override
-    public void turnOff()
-    {
-        hasBudget = false;
-    }
-
-    @Override
-    public void turnOn()
-    {
-        hasBudget = true;
-    }
 }
