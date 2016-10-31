@@ -4,18 +4,19 @@ package com.emmaobo.expensecalculator.pojo;
 import java.math.BigDecimal;
 
 public class Calculator{
+    private final String ZERO = "0";
     private final BigDecimal TITHE = new BigDecimal(".10");
     private BigDecimal total;
     private String errorMsg;
 
     public Calculator()
     {
-        total = new BigDecimal("0");
+        total = new BigDecimal(ZERO);
     }
 
     public void addExpense(BigDecimal cost)
     {
-        if(cost.compareTo(new BigDecimal("0")) == -1)
+        if(cost.compareTo(new BigDecimal(ZERO)) == -1)
         {
             errorMsg = "Cannot have negative costs";
             System.out.println(errorMsg);
@@ -27,7 +28,7 @@ public class Calculator{
 
     public void subtractExpense(BigDecimal cost)
     {
-        if(cost.compareTo(new BigDecimal("0")) == -1)
+        if(cost.compareTo(new BigDecimal(ZERO)) == -1)
         {
             errorMsg = "Cannot have negative costs";
             System.out.println(errorMsg);
@@ -54,7 +55,7 @@ public class Calculator{
 
     public void clear()
     {
-        total = new BigDecimal("0");
+        total = new BigDecimal(ZERO);
     }
 
 

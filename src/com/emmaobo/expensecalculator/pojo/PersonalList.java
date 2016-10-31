@@ -13,6 +13,8 @@ import java.util.Scanner;
 
 public class PersonalList extends ExpensesList {
 
+    private final String NEWLINE = "\n";
+    private final String SINGLE_QUOTE = "'";
     private Scanner userInput;
     private ListReader listReader;
     private ListWriter listWriter;
@@ -38,7 +40,7 @@ public class PersonalList extends ExpensesList {
     {
         list.put(item, cost);
         calc.addExpense(cost);
-        System.out.println("'" + item + "'" + " added to list.");
+        System.out.println(SINGLE_QUOTE + item + SINGLE_QUOTE + " added to list.");
     }
 
     @Override
@@ -48,7 +50,7 @@ public class PersonalList extends ExpensesList {
         {
             calc.subtractExpense(list.get(item));
             list.remove(item);
-            System.out.println("Item " + "'" + item + "'" + " was successfully removed.");
+            System.out.println("Item " + SINGLE_QUOTE + item + SINGLE_QUOTE + " was successfully removed.");
         }
     }
 
@@ -60,7 +62,7 @@ public class PersonalList extends ExpensesList {
         while(it.hasNext())
         {
             Map.Entry pair = (Map.Entry)it.next();
-            printedList += "Item: " + pair.getKey() + ", " +"Price: $" + pair.getValue() +"\n";
+            printedList += "Item: " + pair.getKey() + ", " +"Price: $" + pair.getValue() + NEWLINE;
         }
         System.out.println(printedList);
         getTotal();
