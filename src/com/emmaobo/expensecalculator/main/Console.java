@@ -5,6 +5,8 @@ import com.emmaobo.expensecalculator.pojo.Controller;
 import com.emmaobo.expensecalculator.pojo.Menu;
 import com.emmaobo.expensecalculator.pojo.PersonalList;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -21,6 +23,9 @@ public class Console {
         Controller controller ;
         String option;
         PersonalList list;
+        Button createBtn;
+        JFrame window = new JFrame();
+
 
         while(INFINITE)
         {
@@ -46,6 +51,9 @@ public class Console {
             }
             else if (option.equals(RESTORE_EXISTING_LIST))
             {
+                createBtn = new Button();
+                window.add(createBtn);
+                window.setVisible(true);
                 //TODO: Implement restore list functionality
             }
             else if (option.equals(EXIT))
